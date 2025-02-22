@@ -1,14 +1,16 @@
 import sqlite3
 import sys
 
-from PyQt6 import uic
 from PyQt6.QtWidgets import QApplication, QMainWindow, QTableWidgetItem, QMessageBox, QInputDialog
 
+from design import Ui_MainWindow
 
-class MyWidget(QMainWindow):
+
+class MyWidget(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi('main.ui', self)
+        # uic.loadUi('main.ui', self)
+        self.setupUi(self)
         self.delete_button.clicked.connect(self.delete_row)
         self.add_button.clicked.connect(self.add_row)
 
